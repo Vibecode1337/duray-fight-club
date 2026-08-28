@@ -150,6 +150,7 @@ function setupTeacherModal() {
     Object.entries(fields).forEach(([selector, value]) => { document.querySelector(selector).textContent = value })
     document.querySelector('#teacher-modal-image').src = teacher.image
     document.querySelector('#teacher-modal-image').alt = teacher.imageAlt || `Retrato demonstrativo de ${teacher.name}`
+    document.querySelector('#teacher-modal-placeholder-label').hidden = teacher.isPlaceholder === false
     document.querySelector('#teacher-modal-specialties').innerHTML = teacher.specialties.map((item) => `<li>${item}</li>`).join('')
     modal.showModal()
   })

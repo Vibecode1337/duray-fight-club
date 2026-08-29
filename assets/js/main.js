@@ -146,8 +146,9 @@ function setupTeacherModal() {
     const button = event.target.closest('[data-teacher-index]')
     if (!button) return
     const teacher = data.teachers[Number(button.dataset.teacherIndex)]
-    const fields = { '#teacher-modal-name': teacher.name, '#teacher-modal-role': teacher.modality, '#teacher-modal-teaching': teacher.teachingYears, '#teacher-modal-bio': teacher.biography }
+    const fields = { '#teacher-modal-name': teacher.name, '#teacher-modal-role': teacher.modality, '#teacher-modal-teaching': teacher.teachingYears || '', '#teacher-modal-bio': teacher.biography }
     Object.entries(fields).forEach(([selector, value]) => { document.querySelector(selector).textContent = value })
+    modal.querySelector('.teacher-modal__facts').hidden = !teacher.teachingYears
     document.querySelector('#teacher-modal-image').src = teacher.image
     document.querySelector('#teacher-modal-image').alt = teacher.imageAlt || `Retrato demonstrativo de ${teacher.name}`
     document.querySelector('#teacher-modal-placeholder-label').hidden = teacher.isPlaceholder === false

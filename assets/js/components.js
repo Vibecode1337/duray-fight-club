@@ -16,7 +16,8 @@ function createTeacherCard(teacher, index) {
   card.className = 'teacher-card'
   const imageAlt = teacher.imageAlt || `Retrato demonstrativo de ${teacher.name}`
   const badge = teacher.isPlaceholder === false ? teacher.modality : 'EDITAR'
-  card.innerHTML = `<button type="button" data-teacher-index="${index}" aria-label="Ver perfil completo de ${teacher.name}"><span class="teacher-card__media"><img src="${teacher.image}" alt="${imageAlt}" loading="lazy" decoding="async" width="1024" height="1280"><small>${badge}</small></span><span class="teacher-card__body"><span class="teacher-card__index">${String(index + 1).padStart(2, '0')}</span><h3>${teacher.name}</h3><span>${teacher.modality}</span><em>Ver perfil <span aria-hidden="true">↗</span></em></span></button>`
+  const imageStyle = teacher.imageFit ? ` style="object-fit: ${teacher.imageFit}; object-position: center"` : ''
+  card.innerHTML = `<button type="button" data-teacher-index="${index}" aria-label="Ver perfil completo de ${teacher.name}"><span class="teacher-card__media"><img src="${teacher.image}" alt="${imageAlt}" loading="lazy" decoding="async" width="1024" height="1280"${imageStyle}><small>${badge}</small></span><span class="teacher-card__body"><span class="teacher-card__index">${String(index + 1).padStart(2, '0')}</span><h3>${teacher.name}</h3><span>${teacher.modality}</span><em>Ver perfil <span aria-hidden="true">↗</span></em></span></button>`
   return card
 }
 

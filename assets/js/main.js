@@ -149,8 +149,13 @@ function setupTeacherModal() {
     const fields = { '#teacher-modal-name': teacher.name, '#teacher-modal-role': teacher.modality, '#teacher-modal-teaching': teacher.teachingYears || '', '#teacher-modal-bio': teacher.biography }
     Object.entries(fields).forEach(([selector, value]) => { document.querySelector(selector).textContent = value })
     modal.querySelector('.teacher-modal__facts').hidden = !teacher.teachingYears
-    document.querySelector('#teacher-modal-image').src = teacher.image
-    document.querySelector('#teacher-modal-image').alt = teacher.imageAlt || `Retrato demonstrativo de ${teacher.name}`
+    modal.querySelector('.teacher-modal__bio').hidden = !teacher.biography
+    modal.querySelector('.teacher-modal__specialties').hidden = !teacher.specialties?.length
+    const modalImage = document.querySelector('#teacher-modal-image')
+    modalImage.src = teacher.image
+    modalImage.alt = teacher.imageAlt || `Retrato demonstrativo de ${teacher.name}`
+    modalImage.style.objectFit = teacher.imageFit || 'cover'
+    modalImage.style.objectPosition = 'center'
     document.querySelector('#teacher-modal-placeholder-label').hidden = teacher.isPlaceholder === false
     document.querySelector('#teacher-modal-specialties').innerHTML = teacher.specialties.map((item) => `<li>${item}</li>`).join('')
     modal.showModal()

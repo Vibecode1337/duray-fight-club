@@ -155,7 +155,7 @@ function setupTeacherModal() {
     modalImage.src = teacher.image
     modalImage.alt = teacher.imageAlt || `Retrato demonstrativo de ${teacher.name}`
     modalImage.style.objectFit = teacher.imageFit || 'cover'
-    modalImage.style.objectPosition = 'center'
+    modalImage.style.objectPosition = teacher.imagePosition || 'center'
     document.querySelector('#teacher-modal-placeholder-label').hidden = teacher.isPlaceholder === false
     document.querySelector('#teacher-modal-specialties').innerHTML = teacher.specialties.map((item) => `<li>${item}</li>`).join('')
     modal.showModal()

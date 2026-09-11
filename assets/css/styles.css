@@ -699,6 +699,12 @@ svg {
   filter: saturate(0.8) contrast(1.05);
 }
 
+.about__media--logo img {
+  object-fit: contain;
+  object-position: center;
+  background: #000;
+}
+
 .about__media figcaption {
   position: absolute;
   right: 0;

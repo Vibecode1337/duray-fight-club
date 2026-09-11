@@ -3057,7 +3057,8 @@ svg {
   }
 
   .about__media--logo img {
-    padding: 28%;
+    aspect-ratio: 4 / 3;
+    padding: 14%;
   }
 
   .about__principles,

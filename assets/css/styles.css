@@ -3056,6 +3056,10 @@ svg {
     grid-template-columns: 1fr;
   }
 
+  .about__media--logo img {
+    padding: 28%;
+  }
+
   .about__principles,
   .about__stats {
     grid-template-columns: 1fr;

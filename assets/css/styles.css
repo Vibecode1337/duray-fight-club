@@ -700,6 +700,8 @@ svg {
 }
 
 .about__media--logo img {
+  box-sizing: border-box;
+  padding: 7%;
   object-fit: contain;
   object-position: center;
   background: #000;
